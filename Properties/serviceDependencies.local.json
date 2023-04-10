@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "identityapp1": {
+      "type": "identityapp.default",
+      "dynamicId": null
+    },
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql"
+    },
+    "cosmosdb1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.DocumentDB/databaseAccounts/factoriostudio-db",
+      "type": "cosmosdb.azure",
+      "connectionId": "FactorioStudioContext"
+    },
+    "secrets1": {
+      "ignored": "true",
+      "type": "secrets.keyVault"
+    }
+  }
+}

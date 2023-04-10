@@ -1,0 +1,40 @@
+﻿@page "/blueprints"
+@using FactorioStudio.Data
+@inject BlueprintService blueprintService
+
+<h3>Blueprints</h3>
+
+<h1>Blueprints Info</h1>
+@if (blueprints is null)
+{
+    <p><em>Loading... !</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in blueprints)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    List<Blueprint> blueprints;
+
+    protected override async Task OnInitializedAsync()
+    {
+        blueprints = await Task.Run(() => blueprintService.GetAllBlueprintsAsync());
+    }
+}
