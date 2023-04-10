@@ -15,6 +15,7 @@ public class FactorioStudioContext : DbContext
     {
         modelBuilder.Entity<Blueprint>()
             .ToContainer(nameof(Blueprints))
+            .HasNoDiscriminator()
             .HasPartitionKey(o => o.Id)
             .UseETagConcurrency();
 
