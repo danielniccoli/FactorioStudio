@@ -17,7 +17,8 @@ public class BlueprintService
 
     public async Task<List<Blueprint>> GetAllBlueprintsAsync()
     {
-        return await _context.Blueprints.ToListAsync();
+        var list = await _context.Blueprints.ToListAsync();
+        return list;
     }
 }
 

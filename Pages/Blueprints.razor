@@ -1,5 +1,7 @@
 ﻿@page "/blueprints"
 @using FactorioStudio.Data
+@using Microsoft.Extensions.Logging
+@inject ILogger<Blueprints> Logger
 @inject BlueprintService blueprintService
 
 <h3>Blueprints</h3>
@@ -15,7 +17,9 @@ else
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Json</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +27,9 @@ else
             {
                 <tr>
                     <td>@b.Id</td>
-                    <td>@b.Name</td>
+                    <td>@b.Label</td>
+                    <td>@b.Description</td>
+                    <td>@b.Json</td>
                 </tr>
             }
         </tbody>

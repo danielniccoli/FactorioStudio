@@ -7,8 +7,10 @@ using Microsoft.Identity.Web.UI;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+#pragma warning disable CS8604 // Possible null reference argument.
 builder.Services.AddDbContext<FactorioStudioContext>(options =>
     options.UseCosmos(builder.Configuration["FactorioStudioContext"], databaseName: "FactorioStudio"));
+#pragma warning restore CS8604 // Possible null reference argument.
 
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));

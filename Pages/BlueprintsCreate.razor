@@ -1,0 +1,31 @@
+﻿@page "/blueprints/create"
+@using FactorioStudio.Data
+@using Microsoft.Extensions.Logging
+@inject ILogger<Blueprints> Logger
+@inject BlueprintService blueprintService
+
+<h3>Blueprints</h3>
+
+<h1>Create New Blueprint</h1>
+
+<EditForm Model="@blueprint" OnValidSubmit="@HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="label" @bind-Value="blueprint.Label" />
+    <InputText id="description" @bind-Value="blueprint.Description" />
+    <InputText id="json" @bind-Value="blueprint.Json" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    private Blueprint blueprint = new();
+
+    private void HandleSubmit()
+    {
+        Logger.LogInformation("HandleSubmit called");
+
+        // Process the valid form
+    }
+}
